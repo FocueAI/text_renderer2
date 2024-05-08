@@ -11,8 +11,8 @@ data2
 output2
 notebook
 .ipynb_checkpoints
-.ipynb
-
+example_data/output
+example_data/effect_layout_image/*
 text_renderer.egg-info/
 workspace
 workspace2

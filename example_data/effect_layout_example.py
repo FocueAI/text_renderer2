@@ -44,7 +44,8 @@ def base_cfg(name: str):
             bg_dir=BG_DIR,
             corpus=EnumCorpus(
                 EnumCorpusCfg(
-                    items=["Hello! 你好！"],
+                    # items=["Hello! 你好！"],
+                    items=["Hello! 候胜超！"], # 这里面的字符设置成要生成的字符串
                     text_color_cfg=FixedTextColorCfg(),
                     **font_cfg,
                 ),
@@ -216,11 +217,11 @@ def emboss():
 
 configs = [
     # bg_and_text_mask()
-    emboss()
-    # vertical_text()
+    # emboss()
+    vertical_text()
     # extra_text_line_layout()
     # char_spacing_compact(),
-    # char_spacing_large(),
+    # char_spacing_large()
     # *line(),
     # perspective_transform(),
     # color_image(),

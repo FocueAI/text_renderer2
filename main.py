@@ -84,7 +84,9 @@ def process_setup(*args):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", required=True, help="python file path")
+    parser.add_argument("--config", default="example_data/example.py", help="python file path")                     # 生成正常排版的样本
+    # parser.add_argument("--config", default="example_data/effect_layout_example.py", help="python file path")     # 生成逆时针90°的样本
+
     parser.add_argument("--dataset", default="img", choices=["lmdb", "img"])
     parser.add_argument("--num_processes", type=int, default=2)
     parser.add_argument("--log_period", type=float, default=10)

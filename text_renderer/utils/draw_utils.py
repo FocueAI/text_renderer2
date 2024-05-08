@@ -53,7 +53,9 @@ def draw_text_on_bg(
     heights = []
 
     for c in font_text.text:
+        # find a error
         size = font_text.font.getsize(c)
+        # size = font_text.font.size(c)
         chars_size.append(size)
         widths.append(size[0])
         heights.append(size[1])

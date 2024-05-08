@@ -103,7 +103,7 @@ class PerspectiveTransform(object):
             flags=cv2.INTER_CUBIC,
             borderValue=(255, 255, 255, 0),
         )
-        transformed_pnts = self.transform_pnts(text_box_pnts, self.M33)
+        transformed_pnts = self.transform_pnts(text_box_pnts, self.M33)  # 该代码块出错
 
         transformed_text_box = cv2.boundingRect(transformed_pnts)
         transformed_text_box = list(transformed_text_box)
@@ -131,7 +131,8 @@ class PerspectiveTransform(object):
         pnts = np.asarray(pnts, dtype=np.float32)
         pnts = np.array([pnts])
         dst_pnts = cv2.perspectiveTransform(pnts, M33)[0]
-        return np.array(dst_pnts).astype(np.int)
+        # return np.array(dst_pnts).astype(np.int)
+        return np.array(dst_pnts).astype(np.int32) # 候胜超
 
     def get_warped_pnts(self, ptsIn, ptsOut, W, H, sidelength):
         ptsIn2D = ptsIn[0, :]

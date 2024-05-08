@@ -88,7 +88,7 @@ class Render:
             raise e
 
     def gen_single_corpus(self) -> Tuple[PILImage, str, PILImage, PILImage]:
-        font_text = self.corpus.sample()
+        font_text = self.corpus.sample() #采样数据标签 
 
         bg = self.bg_manager.get_bg()
         if self.cfg.text_color_cfg is not None:
@@ -112,7 +112,7 @@ class Render:
             # TODO: refactor this, now we must call get_transformed_size to call gen_warp_matrix
             _ = transformer.get_transformed_size(text_mask.size)
 
-            try:
+            try: # 该代码块出错
                 (
                     transformed_text_mask,
                     transformed_text_pnts,

@@ -39,7 +39,8 @@ def get_char_corpus():
             text_paths=[TEXT_DIR / "chn_text.txt", TEXT_DIR / "eng_text.txt"],
             filter_by_chars=True,
             chars_file=CHAR_DIR / "chn.txt",
-            length=(5, 10),
+            # length=(5, 10),
+            length=(5, 90),
             char_spacing=(-0.3, 1.3),
             **font_cfg
         ),
@@ -50,7 +51,7 @@ def base_cfg(
     name: str, corpus, corpus_effects=None, layout_effects=None, layout=None, gray=True
 ):
     return GeneratorCfg(
-        num_image=50,
+        num_image=150000,   # 生成图像的数量!!!
         save_dir=OUT_DIR / name,
         render_cfg=RenderCfg(
             bg_dir=BG_DIR,
@@ -66,7 +67,7 @@ def base_cfg(
 
 def chn_data():
     return base_cfg(
-        inspect.currentframe().f_code.co_name,
+        inspect.currentframe().f_code.co_name,  # 为了打印出对应的方法eg：chn_data()
         corpus=get_char_corpus(),
         corpus_effects=Effects(
             [
@@ -84,7 +85,8 @@ def enum_data():
             EnumCorpusCfg(
                 text_paths=[TEXT_DIR / "enum_text.txt"],
                 filter_by_chars=True,
-                chars_file=CHAR_DIR / "chn.txt",
+                # chars_file=CHAR_DIR / "chn.txt",
+                chars_file=CHAR_DIR / "suo_shu_hao.txt",
                 **font_cfg
             ),
         ),
@@ -203,12 +205,12 @@ def imgaug_emboss_example():
 # fmt: off
 # The configuration file must have a configs variable
 configs = [
-    chn_data(),
+    # chn_data(),
     enum_data(),
-    rand_data(),
-    eng_word_data(),
-    same_line_data(),
-    extra_text_line_data(),
-    imgaug_emboss_example()
+    # rand_data(),
+    # eng_word_data(),
+    # same_line_data(),
+    # extra_text_line_data(),
+    # imgaug_emboss_example()
 ]
 # fmt: on
